@@ -1,231 +1,122 @@
 <!DOCTYPE html>
-<html lang="es">
+<html lang="en">
   <head>
-    <!-- Global site tag (gtag.js) - Google Analytics -->
-    <!-- Google tag (gtag.js) -->
-    <script
-      async
-      src="https://www.googletagmanager.com/gtag/js?id=G-FK8SBWWQ98"
-    ></script>
-    <script>
-      window.dataLayer = window.dataLayer || [];
-      function gtag() {
-        dataLayer.push(arguments);
-      }
-      gtag("js", new Date());
-
-      gtag("config", "G-FK8SBWWQ98");
-    </script>
-
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Lucas Gonzalo Michailian | @lmichailian</title>
-    <link
-      href="https://fonts.googleapis.com/css?family=Inconsolata|Roboto:700,400,300,200|Monoton&display=swap"
-      rel="stylesheet"
-    />
+    <title>Lucas Michailian</title>
+
     <style>
-      body {
-        font-family: "Roboto", sans-serif;
-        background-color: var(--background-color);
-        color: var(--text-color);
+      * {
         margin: 0;
-        padding: 20px;
-        animation: fadeIn 2s ease-in-out;
+        padding: 0;
+        overflow: hidden;
+        cursor: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAMAAABEpIrGAAAABGdBTUEAALGPC/xhBQAAAWhQTFRFAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAKCgogoKCb29vj4+PTU1Nbm5uwsLCxcXFJycnGhoaOzs7Xl5eTExMrq6ukpKSlJSUKioqDAwMp6envr6+srKyLy8vDg4OnJyck5OTVlZWo6OjqKiovLy89PT0gICAMzMzOjo6jY2N/Pz8Z2dnxsbGmZmZGRkZr6+vqqqqDQ0Nn5+f8fHx8PDwtra29vb2/v7+ZmZm9fX1jIyM7u7u/f398vLyzMzM+Pj4Hx8fT09PHR0dPz8/9/f3+fn5+/v7f39/8/Pzzc3N3Nzcv7+/0tLSz8/Pzs7O7Ozs09PT0dHR5eXl7e3t4eHh4+Pj4ODg3t7e1dXVDw8P2NjY1tbW0NDQ19fX39/f4uLi2dnZ29vb5+fn6+vr5OTkX19f2tra3d3d6enp6urq1NTU6Ojo5ubm7+/vAAAA////J4p8DAAAABB0Uk5Tb0/fj19/P68Pzx8vv++fAIDFUDwAAAHjSURBVDjLhZPpV9NAFMXTNdskQdx3RQX3XUF2BITuxQpV6tKg0EJpbZvkzr/vTJOSTDke7od8yP2d++a9mSdZZ0iyNJkQOf1/QDPAFE/G2Vc2CTG1EUDG5nSljVCGLgLANKV01s518k/s7O1b2RGCAR4D1p7OrJTnH99z3P4dIHoiiWCcLhULi+W51WrX7c4VvYyQIenA9UL+2bpX7R318iyMejmoSqRN3cCNxnyt53Q3qC9vE4kIYCkGrrUc16MnqgB6CCgq6+3RboFGVAIJARP2+UrmVdSnnn0SIVnANvtTEQA6CzkC0NNi55SGgIr2qP160XsImAEQwwhRXK/2HHdqEqbit5kEMqG9Vq61ukfucWPhw2BevFLawIODwN/wuL/74/vB3/uM0AaApatBmaWVVR5/zP3D5s2r7Fb8syoyYOfapbe1FvcbP3997jT365evgATNWGnCH8sbP577e7/7X/5cwrBbJi1l4qXjlz9s7nN/ZxlxKfI2NGQH8dyvf/22vfWRXVoUYEP1y7N47r8DUpYAqFhg8X75nU+lwTAFgGAiiGf+sj9sAUjgYmcvKP8+uAwBSKHtxz9/wfYjaZ0C0hir92fOXbjLRjLcMAFQjOF2hQsoAFaMz5MkYsJ2n6F/D5nrbs+c8cIAAAAASUVORK5CYII="),
+          auto;
       }
 
-      h1 {
-        font-family: "Roboto", cursive;
-        font-size: 48px;
-        text-align: center;
-        margin-bottom: 20px;
+      body {
+        font-family: Arial, sans-serif;
+        height: 100vh;
       }
 
-      article {
-        background-color: var(--card-background);
-        padding: 20px;
+      canvas {
+        border: 10px solid black;
         border-radius: 10px;
-        box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
-        max-width: 800px;
+      }
+
+      .navbar {
         margin: 0 auto;
-        animation: slideIn 1.5s ease-in-out;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 10px 20px;
+        background-color: #333;
+        color: white;
       }
 
       p {
-        line-height: 1.6;
-        font-size: 18px;
+        text-align: center;
+        position: absolute;
+        left: 0;
+        right: 0;
+        top: 100px;
+        font-family: monospace;
+        font-size: 20px;
       }
 
-      a {
-        color: #4a90e2;
-        text-decoration: none;
+      .brand {
+        font-size: 24px;
         font-weight: bold;
-        transition: color 0.3s;
+        text-transform: uppercase;
       }
 
-      a:hover {
-        color: #d94f4f;
-      }
-
-      .language-switcher {
+      .navbar-right {
         display: flex;
-        justify-content: center;
-        margin-bottom: 20px;
+        align-items: center;
       }
 
-      .language-switcher button {
-        margin: 0 10px;
-        padding: 10px 20px;
-        font-size: 16px;
-        cursor: pointer;
-        background-color: #4a90e2;
+      .icon-link {
+        color: white;
+        margin-right: 15px;
+        font-size: 20px;
+        text-decoration: none;
+        padding-top: 5px;
+      }
+
+      .icon-link:hover {
+        color: #1da1f2;
+      }
+
+      a.btn-cv {
+        background-color: #1da1f2;
         color: white;
         border: none;
+        padding: 10px 20px;
         border-radius: 5px;
-        transition: background-color 0.3s;
+        cursor: pointer;
+        transition: background-color 0.3s ease;
+        text-decoration: none;
       }
 
-      .language-switcher button:hover {
-        background-color: #357ab8;
-      }
-
-      @media (prefers-color-scheme: dark) {
-        :root {
-          --background-color: #121212;
-          --text-color: #e0e0e0;
-          --card-background: #1e1e1e;
-        }
-      }
-
-      @media (prefers-color-scheme: light) {
-        :root {
-          --background-color: #f4f4f4;
-          --text-color: #333;
-          --card-background: #ffffff;
-        }
-      }
-
-      @keyframes fadeIn {
-        from {
-          opacity: 0;
-        }
-        to {
-          opacity: 1;
-        }
-      }
-
-      @keyframes slideIn {
-        from {
-          transform: translateY(50px);
-          opacity: 0;
-        }
-        to {
-          transform: translateY(0);
-          opacity: 1;
-        }
+      .btn-cv:hover {
+        background-color: #0c85d0;
       }
     </style>
-    <script>
-      // Detect the browser language and set the initial content
-      document.addEventListener("DOMContentLoaded", () => {
-        const userLang = navigator.language || navigator.userLanguage;
-        if (userLang.startsWith("es")) {
-          setLanguage("es");
-        } else {
-          setLanguage("en");
-        }
-      });
+    <link
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css"
+      rel="stylesheet"
+    />
 
-      function setLanguage(lang) {
-        const elements = document.querySelectorAll("[data-lang]");
-        elements.forEach((el) => {
-          el.style.display =
-            el.getAttribute("data-lang") === lang ? "block" : "none";
-        });
-      }
-    </script>
+    <script src="https://cdn.jsdelivr.net/npm/phaser@3.60.0/dist/phaser-arcade-physics.min.js"></script>
+    <script src="./src/game.js" type="module"></script>
   </head>
-  <body>
-    <div class="language-switcher">
-      <button onclick="setLanguage('es')">Español</button>
-      <button onclick="setLanguage('en')">English</button>
-    </div>
+  <body id="game-container">
+    <nav class="navbar">
+      <!-- Logo de la marca -->
+      <div class="brand">LGM</div>
 
-    <h1>Lucas Gonzalo Michailian</h1>
-
-    <article>
-      <section>
-        <div data-lang="es">
-          <p>
-            Si caíste acá, probablemente me conocés. Si no, te cuento que soy
-            Lucas Michailian y no te voy a aburrir diciendo que soy un
-            apasionado de la tecnología y ese humo de siempre.
-          </p>
-
-          <p>
-            Actualmente trabajo en
-            <a href="https://www.y.uno">Yuno Payments</a> como SRE. Me
-            especializo en crear frontends, mentorear personas y hacer que las
-            cosas sucedan.
-          </p>
-
-          <p>
-            Escribo regularmente en
-            <a href="https://x.com/lmichailian" target="_blank">X</a> sobre mis
-            experimentos. También me podés encontrar en
-            <a href="https://instagram.com/lucasmichailian" target="_blank"
-              >Instagram</a
-            >
-            y sería feliz si me escribís a
-            <a href="mailto:lucasmichailian@gmail.com"
-              >lucasmichailian@gmail.com</a
-            >
-          </p>
-
-          <p>
-            <b>Construyo cosas en</b>: Javascript, ReactJS, ReactNative,
-            Laravel, Node y lo que necesite el proyecto o la idea que se me
-            ocurra.
-          </p>
-
-          <p>PD: Amo a mi esposa, a mi perra y a mi país 🇦🇷.</p>
-        </div>
-
-        <div data-lang="en">
-          <p>
-            If you're here, you probably know me. If not, let me tell you that
-            I'm Lucas Michailian, and I'm not going to bore you by saying that
-            I'm passionate about technology and that bullshit.
-          </p>
-
-          <p>
-            I currently work at
-            <a href="https://www.y.uno">Yuno Payments</a> as an SRE. I
-            specialize in building frontends, mentoring people, and making
-            things happen.
-          </p>
-
-          <p>
-            I regularly write on
-            <a href="https://x.com/lmichailian" target="_blank">X</a> about my
-            experiments. You can also find me on
-            <a href="https://instagram.com/lucasmichailian" target="_blank"
-              >Instagram</a
-            >
-            and I’d be happy if you write to me at
-            <a href="mailto:lucasmichailian@gmail.com"
-              >lucasmichailian@gmail.com</a
-            >
-          </p>
-
-          <p>
-            <b>I build things with</b>: Javascript, ReactJS, ReactNative,
-            Laravel, Node, and whatever the project or idea requires.
-          </p>
-
-          <p>PS: I love my wife, my dog, and my country 🇦🇷.</p>
-        </div>
-      </section>
-    </article>
+      <!-- Enlaces a la derecha -->
+      <div class="navbar-right">
+        <a href="https://x.com/lmichailian" target="_blank" class="icon-link"
+          ><i class="fab fa-x-twitter"></i
+        ></a>
+        <a
+          href="https://www.linkedin.com/in/lucas-michailian-853a7b5b/"
+          class="icon-link"
+          target="_blank"
+          ><i class="fab fa-linkedin"></i
+        ></a>
+        <a
+          href="https://github.com/lmichailian"
+          class="icon-link"
+          target="_blank"
+          ><i class="fab fa-github"></i
+        ></a>
+        <a class="btn-cv" href="./assets/cv.pdf" target="_blank">
+          Download CV
+        </a>
+      </div>
+    </nav>
+    <p style="tuto">Use arrows and Enter for select menu item</p>
   </body>
 </html>
